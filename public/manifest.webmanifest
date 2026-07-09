@@ -1,0 +1,9 @@
+{
+  "name": "In Loving Memory — Elias T. Penhaligon",
+  "short_name": "In Memoriam",
+  "description": "A memorial tribute to a life well lived.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfcf9",
+  "theme_color": "#1c1c1a"
+}
