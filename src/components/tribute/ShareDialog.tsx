@@ -11,8 +11,10 @@ export function ShareDialog() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      const base = isLocal ? 'https://onlinetribute.vercel.app' : window.location.origin;
+      let base = window.location.origin;
+      if (base.includes('localhost') || base.includes('127.0.0.1') || base.includes('192.168') || base.includes('0.0.0.0')) {
+        base = 'https://onlinetribute.vercel.app';
+      }
       setUrl(`${base}${window.location.pathname}${window.location.search}`);
     }
   }, []);
