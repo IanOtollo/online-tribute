@@ -10,7 +10,11 @@ export function ShareDialog() {
   const { language } = useLanguage();
 
   useEffect(() => {
-    if (typeof window !== "undefined") setUrl(window.location.href);
+    if (typeof window !== "undefined") {
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const base = isLocal ? 'https://onlinetribute.vercel.app' : window.location.origin;
+      setUrl(`${base}${window.location.pathname}${window.location.search}`);
+    }
   }, []);
 
   const copy = async () => {
